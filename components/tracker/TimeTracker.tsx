@@ -6,6 +6,8 @@ function TimeTracker() {
   const [timerRunning, setTimerRunning] = useState<boolean>(false);
   const [timerStart, setTimerStart] = useState<number>(Date.now());
   const [timerTotal, setTimerTotal] = useState<number>(0);
+  const [task, setTask] = useState<string>("");
+  const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
     if (!timerRunning) {
@@ -32,6 +34,10 @@ function TimeTracker() {
     setTimerTotal(0);
   }
 
+  function handleTaskSubmit() {
+    return;
+  }
+
   return (
     <div className={styles.container}>
       <h1>Time Tracker</h1>
@@ -42,6 +48,17 @@ function TimeTracker() {
         </button>
         <button onClick={resetTimer}>⏹</button>
       </div>
+      <form onSubmit={handleTaskSubmit}>
+        <label>
+          Task:{" "}
+          <input
+            type="text"
+            placeholder="Enter task"
+            value={task}
+            onChange={(event) => setTask(event.target.value)}
+          />
+        </label>
+      </form>
     </div>
   );
 }
