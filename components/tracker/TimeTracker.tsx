@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Counter from "./Counter";
 import styles from "./TimeTracker.module.css";
 
 function TimeTracker() {
@@ -34,8 +35,7 @@ function TimeTracker() {
   return (
     <div className={styles.container}>
       <h1>Time Tracker</h1>
-      <div>Start: {timerStart}</div>
-      <div>Total: {timerTotal}</div>
+      <Counter timerTotal={timerTotal} />
       <button onClick={timerRunning ? pauseTimer : startTimer}>
         {timerRunning ? `⏸` : `▶`}
       </button>
