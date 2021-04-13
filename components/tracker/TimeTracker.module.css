@@ -13,3 +13,13 @@
 .buttonContainer button {
   font-size: 1.5em;
 }
+
+.formContainer {
+  display: grid;
+  margin-top: 1em;
+  row-gap: 0.5em;
+  background-color: rgb(194, 255, 236);
+  border: 2px solid black;
+  padding: 0.3em;
+  justify-items: center;
+}

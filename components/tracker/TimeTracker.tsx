@@ -74,7 +74,7 @@ function TimeTracker() {
         </button>
         <button onClick={resetTimer}>⏹</button>
       </div>
-      <form onSubmit={handleTaskSubmit}>
+      <form className={styles.formContainer} onSubmit={handleTaskSubmit}>
         <label>
           Task:{" "}
           <input
