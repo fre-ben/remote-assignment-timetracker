@@ -36,10 +36,12 @@ function TimeTracker() {
     <div className={styles.container}>
       <h1>Time Tracker</h1>
       <Counter timerTotal={timerTotal} />
-      <button onClick={timerRunning ? pauseTimer : startTimer}>
-        {timerRunning ? `⏸` : `▶`}
-      </button>
-      <button onClick={resetTimer}>⏹</button>
+      <div className={styles.buttonContainer}>
+        <button onClick={timerRunning ? pauseTimer : startTimer}>
+          {timerRunning ? `⏸` : `▶`}
+        </button>
+        <button onClick={resetTimer}>⏹</button>
+      </div>
     </div>
   );
 }
