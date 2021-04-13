@@ -30,7 +30,7 @@ If I would've had more time, I would have:
 
 - Reworked the User Story 2, to implement a input which let's the user define tasks he already did in the past.
 - Also I would've rendered the current task input conditionally, so it only is visible, when the Timer stops.
-- Spend more time on styling
+- Spend more time on styling/design
 - Refactor the code, so the TimeTracker component isn't as crowded with functions.
 - Could have built more separate components for the TimeTracker
 
@@ -40,5 +40,7 @@ The most challenging for me was actually getting the time Tracker functionality 
 ### Happy/Unhappy
 I'm quite satisfied with what I achieved so far. In it's core it's a working app :)
 Not so happy about my time management, especially writing this documentation.
+
+Thank you for the opportunity :)
 
 
