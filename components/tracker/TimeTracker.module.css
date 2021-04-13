@@ -3,6 +3,18 @@
   justify-items: center;
 }
 
+.container ul li {
+  margin-top: 1em;
+  list-style: none;
+  border: 2px solid black;
+  background: rgb(248, 222, 188);
+  padding: 0.4em;
+}
+
+.container ul li p {
+  margin: 0;
+}
+
 .buttonContainer {
   display: grid;
   margin-top: 1em;
