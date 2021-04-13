@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Task } from "../../server/db";
+import { postTask } from "../../utils/api";
+import { convertMsToTime, getDate, getTime } from "../../utils/time";
 import Counter from "./Counter";
 import styles from "./TimeTracker.module.css";
 
@@ -6,6 +9,8 @@ function TimeTracker() {
   const [timerRunning, setTimerRunning] = useState<boolean>(false);
   const [timerStart, setTimerStart] = useState<number>(Date.now());
   const [timerTotal, setTimerTotal] = useState<number>(0);
+  const [taskName, setTaskName] = useState<string>("");
+  const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
     if (!timerRunning) {
@@ -32,6 +37,33 @@ function TimeTracker() {
     setTimerTotal(0);
   }
 
+  function handleTaskSubmit(event) {
+    event.preventDefault();
+    if (timerTotal === 0) {
+      const newTask: Task = {
+        task: taskName,
+        elapsedTime: convertMsToTime(Date.now() - timerStart),
+        date: getDate(),
+        time: getTime(),
+      };
+
+      postTask(newTask);
+      setTaskName("");
+    } else {
+      const newTask: Task = {
+        task: taskName,
+        elapsedTime: convertMsToTime(timerTotal),
+        date: getDate(),
+        time: getTime(),
+      };
+
+      postTask(newTask);
+      setTaskName("");
+      setTimerRunning(false);
+      setTimerTotal(0);
+    }
+  }
+
   return (
     <div className={styles.container}>
       <h1>Time Tracker</h1>
@@ -42,6 +74,19 @@ function TimeTracker() {
         </button>
         <button onClick={resetTimer}>⏹</button>
       </div>
+      <form className={styles.formContainer} onSubmit={handleTaskSubmit}>
+        <label>
+          Task:{" "}
+          <input
+            type="text"
+            placeholder="Enter task"
+            value={taskName}
+            onChange={(event) => setTaskName(event.target.value)}
+            required
+          />
+        </label>
+        <button>Submit task</button>
+      </form>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { convertMsToTime } from "../../utils/timeConverter";
+import { convertMsToTime } from "../../utils/time";
 import styles from "./Counter.module.css";
 
 type CounterProps = {
