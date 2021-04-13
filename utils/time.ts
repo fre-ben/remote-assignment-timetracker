@@ -16,3 +16,14 @@ export function getDate(): string {
 
   return `${day}.${month}.${year}`;
 }
+
+export function getTime(): string {
+  const today = new Date();
+  const seconds = today.getUTCSeconds();
+  const minutes = today.getUTCMinutes();
+  const hours = today.getUTCHours() + 2;
+
+  return `${hours < 10 ? "0" + hours : hours}:${
+    minutes < 10 ? "0" + minutes : minutes
+  }:${seconds < 10 ? "0" + seconds : seconds}`;
+}
