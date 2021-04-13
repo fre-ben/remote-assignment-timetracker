@@ -39,17 +39,29 @@ function TimeTracker() {
 
   function handleTaskSubmit(event) {
     event.preventDefault();
-    const newTask: Task = {
-      task: taskName,
-      elapsedTime: convertMsToTime(timerTotal),
-      date: getDate(),
-      time: getTime(),
-    };
+    if (timerTotal === 0) {
+      const newTask: Task = {
+        task: taskName,
+        elapsedTime: convertMsToTime(Date.now() - timerStart),
+        date: getDate(),
+        time: getTime(),
+      };
 
-    postTask(newTask);
-    setTaskName("");
-    setTimerRunning(false);
-    setTimerTotal(0);
+      postTask(newTask);
+      setTaskName("");
+    } else {
+      const newTask: Task = {
+        task: taskName,
+        elapsedTime: convertMsToTime(timerTotal),
+        date: getDate(),
+        time: getTime(),
+      };
+
+      postTask(newTask);
+      setTaskName("");
+      setTimerRunning(false);
+      setTimerTotal(0);
+    }
   }
 
   return (
