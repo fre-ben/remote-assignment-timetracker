@@ -21,3 +21,7 @@ export async function postTask(newTask: Task) {
     alert("Task already exists " + response.status);
   }
 }
+
+export async function fetchTasksByDescription(description): Promise<Task[]> {
+  return await fetchUrl(`/api/tasks/${description}`);
+}
