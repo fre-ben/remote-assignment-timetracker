@@ -17,3 +17,10 @@ export async function getTasks() {
 
   return tasks;
 }
+
+export async function postTask(newTask) {
+  await connectDB(url, "timetracker");
+
+  const taskCollection = db.collection("tasks");
+  return taskCollection.insertOne(newTask);
+}
