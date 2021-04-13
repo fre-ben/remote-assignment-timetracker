@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  justify-items: center;
+}
+
+.buttonContainer {
+  display: grid;
+  margin-top: 1em;
+  grid-auto-flow: column;
+  column-gap: 1em;
+}
+
+.buttonContainer button {
+  font-size: 1.5em;
+}
